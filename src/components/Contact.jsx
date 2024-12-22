@@ -28,7 +28,7 @@ const Contact = () => {
   };
 
   return (
-    <div className="container mx-auto py-20 px-6" ref={contactRef}>
+    <div id="contact" className="container mx-auto py-20 px-6" ref={contactRef}>
       <h2 className="text-4xl font-bold text-center mb-8">Contact Me</h2>
       <form
         className="max-w-lg mx-auto bg-gray-100 dark:bg-gray-800 shadow-lg rounded-lg p-8"

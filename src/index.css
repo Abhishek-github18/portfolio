@@ -27,3 +27,17 @@
   .animate-bounce-on-hover:hover {
     animation: bounce 2s ease-in-out;
   }
+
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  main {
+    padding: 1rem;
+  }
+  

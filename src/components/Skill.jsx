@@ -1,82 +1,92 @@
-import  { useRef } from "react";
+import { useRef } from "react";
+import { motion } from "framer-motion";
 
 const Skill = () => {
-    const skillRef = useRef(null);
+  const skills = useRef(null);
+
+  const skillsData = [
+    { class: "devicon-html5-plain-wordmark colored", name: "HTML5" },
+    { class: "devicon-css3-plain-wordmark colored", name: "CSS3" },
+    { class: "devicon-bootstrap-plain-wordmark", name: "Bootstrap" },
+    { class: "devicon-javascript-plain colored", name: "JavaScript" },
+    { class: "devicon-react-original colored", name: "React" },
+    { class: "devicon-reactrouter-plain-wordmark colored", name: "React Router" },
+    { class: "devicon-nodejs-plain-wordmark colored", name: "Node.js" },
+    { class: "devicon-express-original-wordmark", name: "Express" },
+    { class: "devicon-mongodb-plain-wordmark colored", name: "MongoDB" },
+    { class: "devicon-mongoose-original-wordmark colored", name: "Mongoose" },
+    { class: "devicon-mysql-plain-wordmark", name: "MySQL" },
+    { class: "devicon-java-plain-wordmark", name: "Java" },
+    {
+      src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg",
+      name: "C++",
+    },
+    { class: "devicon-tailwindcss-plain-wordmark", name: "Tailwind CSS" },
+    { class: "devicon-materialui-plain colored", name: "Material UI" },
+    { class: "devicon-redux-original", name: "Redux" },
+  ];
+
+  const toolsData = [
+    { class: "devicon-git-plain-wordmark colored", name: "Git" },
+    { class: "devicon-github-original-wordmark", name: "GitHub" },
+    { class: "devicon-vscode-plain-wordmark", name: "VS Code" },
+    { class: "devicon-atom-original-wordmark", name: "Atom" },
+    { class: "devicon-eclipse-plain-wordmark", name: "Eclipse" },
+    {
+      src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/intellij/intellij-original.svg",
+      name: "IntelliJ",
+    },
+    { class: "devicon-azuredevops-plain colored", name: "Azure DevOps" },
+    { class: "devicon-azure-plain-wordmark", name: "Azure" },
+    { class: "devicon-sonarqube-plain-wordmark", name: "SonarQube" },
+  ];
+
+  const renderIcons = (data) =>
+    data.map((item, index) => (
+      <motion.div
+        key={index}
+        className="p-2 sm:p-4 bg-gray-800 dark:bg-gray-800 rounded-lg shadow-md hover:bg-blue-800 dark:hover:bg-blue-800 transition-transform duration-300 cursor-pointer relative group flex items-center justify-center"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: index * 0.05 }}
+        viewport={{ once: true }}
+      >
+        {item.class ? (
+          <i
+            className={`${item.class} text-4xl sm:text-5xl`}
+            title={item.name}
+          ></i>
+        ) : (
+          <img
+            src={item.src}
+            alt={item.name}
+            className="w-12 sm:w-14 h-12 sm:h-14 mx-auto"
+            title={item.name}
+          />
+        )}
+        {/* Tooltip */}
+        <div className="absolute bottom-1 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-xs bg-black text-white px-2 py-1 rounded-lg shadow-lg">
+          {item.name}
+        </div>
+      </motion.div>
+    ));
+
   return (
-    <div className="container mx-auto py-20" ref={skillRef}>
-      <h2 className="text-3xl font-bold text-center mb-10">Skills</h2>
-      <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8 text-center">
-        {[
-          { class: "devicon-html5-plain-wordmark colored", name: "HTML5" },
-          { class: "devicon-css3-plain-wordmark colored", name: "CSS3" },
-          { class: "devicon-bootstrap-plain-wordmark", name: "Bootstrap" },
-          { class: "devicon-javascript-plain colored", name: "JavaScript" },
-          { class: "devicon-react-original colored", name: "React" },
-          { class: "devicon-reactrouter-plain-wordmark colored", name: "React Router" },
-          { class: "devicon-nodejs-plain-wordmark colored", name: "Node.js" },
-          { class: "devicon-express-original-wordmark", name: "Express" },
-          { class: "devicon-mongodb-plain-wordmark colored", name: "MongoDB" },
-          { class: "devicon-mongoose-original-wordmark colored", name: "Mongoose" },
-          { class: "devicon-mysql-plain-wordmark", name: "MySQL" },
-          { class: "devicon-java-plain-wordmark", name: "Java" },
-          {
-            src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg",
-            name: "C++",
-          },
-          { class: "devicon-tailwindcss-plain-wordmark", name: "Tailwind CSS" },
-          { class: "devicon-materialui-plain colored", name: "Material UI" },
-          { class: "devicon-redux-original", name: "Redux" },
-        ].map((skill, index) => (
-          <div
-            key={index}
-            className="p-4 bg-gray-100 dark:bg-gray-800 rounded-lg shadow-md transform hover:bg-blue-100 dark:hover:bg-blue-800 hover:scale-110 transition-transform duration-300 cursor-pointer"
-          >
-            {skill.class ? (
-              <i className={`${skill.class} text-6xl`} title={skill.name}></i>
-            ) : (
-              <img
-                src={skill.src}
-                alt={skill.name}
-                className="w-16 h-16 mx-auto"
-              />
-            )}
-            <p className="mt-2 text-sm font-medium">{skill.name}</p>
-          </div>
-        ))}
+    <div id="skills" className="container mx-auto px-4 py-20" ref={skills}>
+      {/* Skills Section */}
+      <h2 className="text-2xl sm:text-3xl font-bold text-center mb-10">
+        Skills
+      </h2>
+      <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-4 sm:gap-6">
+        {renderIcons(skillsData)}
       </div>
 
-      <h2 className="text-3xl font-bold text-center mt-20 mb-10">Tools Used</h2>
-      <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8 text-center">
-        {[
-          { class: "devicon-git-plain-wordmark colored", name: "Git" },
-          { class: "devicon-github-original-wordmark", name: "GitHub" },
-          { class: "devicon-vscode-plain-wordmark", name: "VS Code" },
-          { class: "devicon-atom-original-wordmark", name: "Atom" },
-          { class: "devicon-eclipse-plain-wordmark", name: "Eclipse" },
-          {
-            src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/intellij/intellij-original.svg",
-            name: "IntelliJ",
-          },
-          { class: "devicon-azuredevops-plain colored", name: "Azure DevOps" },
-          { class: "devicon-azure-plain-wordmark", name: "Azure" },
-          {class:'devicon-sonarqube-plain-wordmark', name:'SonarQube'},
-        ].map((tool, index) => (
-          <div
-            key={index}
-            className="p-4 bg-gray-100 dark:bg-gray-800 rounded-lg shadow-md transform hover:bg-blue-100 dark:hover:bg-blue-800 hover:scale-110 transition-transform duration-300 cursor-pointer"
-          >
-            {tool.class ? (
-              <i className={`${tool.class} text-6xl`} title={tool.name}></i>
-            ) : (
-              <img
-                src={tool.src}
-                alt={tool.name}
-                className="w-16 h-16 mx-auto"
-              />
-            )}
-            <p className="mt-2 text-sm font-medium">{tool.name}</p>
-          </div>
-        ))}
+      {/* Tools Section */}
+      <h2 className="text-2xl sm:text-3xl font-bold text-center mt-20 mb-10">
+        Tools Used
+      </h2>
+      <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-4 sm:gap-6">
+        {renderIcons(toolsData)}
       </div>
     </div>
   );

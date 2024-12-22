@@ -1,5 +1,5 @@
 import  { useRef } from "react";
-import { EDUCATION } from "../../david-stones-assets-main/constants";
+import { EDUCATION } from "../../abhishek-assets/constants";
 
 const Education = () => {
     const educationRef = useRef(null);

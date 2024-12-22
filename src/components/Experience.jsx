@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { EXPERIENCES } from "../../david-stones-assets-main/constants";
+import { EXPERIENCES } from "../../abhishek-assets/constants";
 
 const Experience = () => {
   const experienceRef = useRef(null);

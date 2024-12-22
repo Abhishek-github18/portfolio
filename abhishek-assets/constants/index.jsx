@@ -1,11 +1,6 @@
-import project4 from "../assets/project4.webp";
-import project5 from "../assets/project5.webp";
-import project6 from "../assets/project6.webp";
 import movieverse from "../assets/moviverse.png"
 import ipu from "../assets/ipu-iif.png"
 import primePlace from "../assets/primeplace.png"
-
-import personImage from "../assets/testimonial.webp";
 
 import {
   RiHtml5Line,
@@ -111,7 +106,7 @@ export const EXPERIENCES = [
     company: "Tata Consultancy Services",
     description:
       "Working on Metlife’s MetDental project, a Dental Provider Servicing Application in the US. Developed a Multi-User Admin Tool allowing one admin per office to invite others for registration and manage their roles. Built a custom registration page integrated with PING Identity for secure invitation-based registration, streamlining the onboarding process and enhancing control over user access for dental offices.",
-    techStack: ["ReactJS", "NodeJS"],
+    techStack: ["ReactJS", "NodeJS", "ExpressJS", "MongoDB", "PING Identity", "Azure DevOps", "SonarQube", "VeraCode"],
   },
   {
     yearRange: "Jul 2022 - Sep 2022",
@@ -119,7 +114,7 @@ export const EXPERIENCES = [
     company: "ACM USICT",
     description:
       "Developed a movie/TV show search app using ReactJS, with features like filtering options based on genres. Focused on delivering a seamless and user-friendly experience.",
-    techStack: ["ReactJS"],
+    techStack: ["ReactJS", "Material UI", "REST APIs"],
   },
 ];
 
@@ -140,11 +135,3 @@ export const EDUCATION = [
     description: "Achieved an excellent academic record with a percentage of 94.3%.",
   },
 ];
-
-export const TESTIMONIAL = {
-  name: "Sarah Doe",
-  title: "CEO, TechCorp",
-  quote:
-    "Working with David was a game-changer. His expertise in full-stack development helped us scale our product with ease. His attention to detail and passion for quality are unmatched.",
-  image: personImage,
-};

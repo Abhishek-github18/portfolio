@@ -41,3 +41,21 @@
     padding: 1rem;
   }
   
+  /* Custom Scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px; /* Scrollbar width */
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #2563eb; /* Blue scrollbar thumb */
+  border-radius: 10px; /* Rounded corners */
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #1e40af; /* Darker blue on hover */
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #1f2937; /* Dark gray background */
+  border-radius: 10px; /* Rounded corners */
+}

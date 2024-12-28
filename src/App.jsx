@@ -1,5 +1,4 @@
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { motion } from "framer-motion";
 import PropTypes from "prop-types";
 import Contact from "./components/Contact";
 import Education from "./components/Education";
@@ -12,17 +11,21 @@ import ParticlesComponent from "./particle";
 
 function App() {
   // Custom Section Component
-  const Section = ({ children }) => {
-    const ref = useRef(null); // Create a ref for the section
-    const isInView = useInView(ref, { once: true }); // Track visibility, trigger animation once
-
+  const Section = ({ children, index }) => {
     return (
       <motion.div
-        ref={ref}
-        initial={{ opacity: 0, y: 75 }}
-        animate={isInView ? { opacity: 1, y: 0 } : undefined} // Animate only if in view
-        transition={{ duration: 0.8, ease: "easeOut" }}
         className="w-full"
+        initial={{
+          opacity: 0,
+          // Slide from right for even, left for odd index
+          x: index % 2 === 0 ? 50 : -50,
+        }}
+        whileInView={{
+          opacity: 1,
+          x: 0, // Slide to the original position
+          transition: { duration: 1 },
+        }}
+        viewport={{ once: true }}
       >
         {children}
       </motion.div>
@@ -32,43 +35,44 @@ function App() {
   // PropTypes validation for Section
   Section.propTypes = {
     children: PropTypes.node.isRequired,
+    index: PropTypes.number.isRequired,
   };
 
   return (
-<div className="relative z-20 min-h-screen text-white bg-black overflow-hidden">
-    {/* Particles Background */}
-    <ParticlesComponent />
+    <div className="relative z-20 min-h-screen text-white bg-black overflow-hidden">
+      {/* Particles Background */}
+      <ParticlesComponent />
 
-    {/* Other Content */}
-    <Navbar />
-    <div className="flex-1 ml-12 md:ml-24">
-      <div className="container mx-auto px-4 md:px-8">
-        <Section>
-          <Hero />
-        </Section>
+      {/* Other Content */}
+      <Navbar />
+      <div className="flex-1 ml-12 md:ml-24">
+        <div className="container mx-auto px-4 md:px-8">
+          <Section index={0}>
+            <Hero />
+          </Section>
 
           {/* Projects Section */}
-          <Section>
+          <Section index={1}>
             <Projects />
           </Section>
 
           {/* Skills Section */}
-          <Section>
+          <Section index={2}>
             <Skill />
           </Section>
 
           {/* Experience Section */}
-          <Section>
+          <Section index={3}>
             <Experience />
           </Section>
 
           {/* Education Section */}
-          <Section>
+          <Section index={4}>
             <Education />
           </Section>
 
           {/* Contact Section */}
-          <Section>
+          <Section index={5}>
             <Contact />
           </Section>
         </div>

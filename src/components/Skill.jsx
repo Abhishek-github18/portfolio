@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import { motion } from "framer-motion";
+import TypingAnimation from "./TypingAnimation";
 
 const Skill = () => {
   const skills = useRef(null);
@@ -74,9 +75,22 @@ const Skill = () => {
   return (
     <div id="skills" className="container mx-auto px-4 py-20" ref={skills}>
       {/* Skills Section */}
-      <h2 className="text-2xl sm:text-3xl font-bold text-center mb-10">
-        Skills
-      </h2>
+      <motion.h2
+              className="text-4xl font-bold text-center mb-16 text-white relative"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1 }}
+            >
+              <TypingAnimation text="Skills" />
+              <motion.div
+                className="absolute bottom-0 left-0 w-full h-[2px] bg-[#0aff9d]"
+                initial={{ width: 0 }}
+                whileInView={{ width: "100%" }}
+                viewport={{ once: true }}
+                transition={{ duration: 1, ease: "easeInOut" }}
+              />
+            </motion.h2>
       <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-4 sm:gap-6">
         {renderIcons(skillsData)}
       </div>

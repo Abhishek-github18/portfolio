@@ -1,20 +1,28 @@
 import { motion } from "framer-motion";
 import { CiMail } from "react-icons/ci";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
+import TypingAnimation from "./TypingAnimation";
 
 const Contact = () => {
   return (
     <div id="contact" className="bg-gray-900 py-16 px-6">
       {/* Heading */}
       <motion.h2
-        className="text-3xl sm:text-4xl font-bold text-center text-white mb-12"
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
-      >
-        Let&apos;s Connect
-      </motion.h2>
-
+              className="text-4xl font-bold text-center mb-16 text-white relative"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1 }}
+            >
+              <TypingAnimation text="Let's Connect" />
+              <motion.div
+                className="absolute bottom-0 left-0 w-full h-[2px] bg-[#0aff9d]"
+                initial={{ width: 0 }}
+                whileInView={{ width: "100%" }}
+                viewport={{ once: true }}
+                transition={{ duration: 1, ease: "easeInOut" }}
+              />
+            </motion.h2>
       {/* Contact Icons Container */}
       <div className="flex flex-wrap justify-center items-center gap-10">
         {/* Contact Item Component */}

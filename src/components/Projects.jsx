@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { PROJECTS } from "../../abhishek-assets/constants";
 import { motion, AnimatePresence } from "framer-motion";
+import TypingAnimation from "./TypingAnimation";
 
 const Projects = () => {
   const [hoveredProject, setHoveredProject] = useState(null);
@@ -9,7 +10,22 @@ const Projects = () => {
     <div>
       {/* Projects Section */}
       <section id="projects" className="container mx-auto py-20 px-4">
-        <h2 className="text-3xl font-bold text-center mb-10">Projects</h2>
+       <motion.h2
+               className="text-4xl font-bold text-center mb-16 text-white relative"
+               initial={{ opacity: 0 }}
+               whileInView={{ opacity: 1 }}
+               viewport={{ once: true }}
+               transition={{ duration: 1 }}
+             >
+               <TypingAnimation text="Projects" />
+               <motion.div
+                 className="absolute bottom-0 left-0 w-full h-[2px] bg-[#0aff9d]"
+                 initial={{ width: 0 }}
+                 whileInView={{ width: "100%" }}
+                 viewport={{ once: true }}
+                 transition={{ duration: 1, ease: "easeInOut" }}
+               />
+             </motion.h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {PROJECTS.map((project) => (
             <div

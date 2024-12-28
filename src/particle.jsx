@@ -7,11 +7,11 @@ const ParticlesComponent = () => {
 
   useEffect(() => {
     initParticlesEngine(async (engine) => {
-      console.log("Initializing tsParticles engine...");
+    //   console.log("Initializing tsParticles engine...");
       await loadSlim(engine);
     }).then(() => {
       setInit(true);
-      console.log("Particles engine initialized successfully!");
+    //   console.log("Particles engine initialized successfully!");
     });
   }, []);
   

@@ -36,7 +36,7 @@ const Experience = () => {
     >
       {/* Section Header with underline animation */}
       <motion.h2
-        className="text-4xl font-bold text-center mb-16 text-gray-800 dark:text-white relative"
+        className="text-4xl font-bold text-center mb-16 text-white relative"
         initial={{ opacity: 0, y: 50 }}
         animate={{
           opacity: 1,

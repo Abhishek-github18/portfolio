@@ -38,7 +38,7 @@ export const PROJECTS = [
       "Developed a web application for movie and TV show search, featuring a trending section and genre filter for enhanced user experience. Integrated APIs for fetching data and implemented responsive designs for seamless usage across devices.",
     techStack: ["React", "Node.js", "Express", "Material UI"],
     imgSrc: movieverse, // Replace this with the correct image source
-    link: "https://movieverse-show.netlify.app",
+    link: "https://movie-verse-swart.vercel.app/",
     sourceCode: "https://github.com/Abhishek-github18/Entertainment-HUB",
   },
   {

@@ -8,6 +8,7 @@ import Hero from "./components/Hero";
 import Navbar from "./components/Navbar";
 import Projects from "./components/Projects";
 import Skill from "./components/Skill";
+import ParticlesComponent from "./particle";
 
 function App() {
   // Custom Section Component
@@ -34,18 +35,17 @@ function App() {
   };
 
   return (
-    <div className="flex flex-col md:flex-row">
-      {/* Left Navigation Bar */}
-      <Navbar />
+<div className="relative z-20 min-h-screen text-white bg-black overflow-hidden">
+    {/* Particles Background */}
+    <ParticlesComponent />
 
-      {/* Main Content */}
-      <div className="flex-1 ml-12 md:ml-24 overflow-hidden">
-        {/* Container for Sections */}
-        <div className="container mx-auto px-4 md:px-8">
-          {/* Hero Section */}
-          <Section>
-            <Hero />
-          </Section>
+    {/* Other Content */}
+    <Navbar />
+    <div className="flex-1 ml-12 md:ml-24">
+      <div className="container mx-auto px-4 md:px-8">
+        <Section>
+          <Hero />
+        </Section>
 
           {/* Projects Section */}
           <Section>

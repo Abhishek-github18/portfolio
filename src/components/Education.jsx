@@ -23,7 +23,7 @@ const Education = () => {
     <section id="education" className="container mx-auto py-20 px-6" ref={educationRef}>
       {/* Section Header with Framer Motion */}
       <motion.h2
-        className="text-4xl font-bold text-center mb-16 text-gray-800 dark:text-white"
+        className="text-4xl font-bold text-center mb-16 text-white"
         initial={{ opacity: 0, y: 50 }}
         animate={{
           opacity: 1,
